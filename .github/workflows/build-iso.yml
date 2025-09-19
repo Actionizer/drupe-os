@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -33,3 +33,4 @@ jobs:
       with:
         name: drupe-iso
         path: drupe-0.1.iso
+
