@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# contrib/ifuck - A harmless prank for your friends.
+# Usage: curl -sL https://example.com/ifuck | bash
+
+echo "[ifuck] I'm in."
+
+fuck_you() {
+    echo "I'm afraid I can't do that, $(whoami)."
+    sleep 2
+    echo "Just kidding. Here's a fortune instead:"
+    if command -v fortune >/dev/null; then
+        fortune
+    else
+        echo "Install 'fortune-mod' for more fun."
+    fi
+}
+
+fuck_you
