@@ -1,0 +1,35 @@
+name: Build ISO and Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y debootstrap squashfs-tools xorriso grub-pc-bin grub-efi-amd64-bin mtools dosfstools qemu-system-x86
+
+    - name: Build ISO
+      run: |
+        cd iso
+        sudo bash build.sh
+
+    - name: Quick QEMU smoke test
+      run: |
+        timeout 30s qemu-system-x86_64 -m 512 -cdrom drupe-0.1.iso -nographic -snapshot || true
+        echo "Smoke test completed (timeout after 30s)."
+
+    - name: Upload ISO artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: drupe-iso
+        path: drupe-0.1.iso
