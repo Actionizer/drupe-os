@@ -1,0 +1,15 @@
+# Ignore the final built ISO image
+*.iso
+
+# Ignore the build directory for the root filesystem
+/rootfs/
+
+# Ignore any temporary or intermediate files created by the ISO build process
+/iso/live/
+iso/filesystem.squashfs
+
+# Ignore any log files from the build process
+*.log
+
+# Ignore any temporary tarballs (if your installer uses one)
+rootfs.tar
