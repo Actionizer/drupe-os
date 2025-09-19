@@ -1,0 +1,42 @@
+# Base System
+bash
+coreutils
+findutils
+grep
+sed
+gawk
+tar
+gzip
+wget
+curl
+sudo
+
+# Networking
+network-manager
+openssh-client
+iproute2
+netcat-openbsd
+net-tools
+
+# Development
+git
+build-essential
+gcc
+make
+python3
+python3-pip
+golang-go
+
+# Utilities & Monitoring
+zsh
+tmux
+htop
+micro
+less
+procps
+
+# Live ISO & Boot
+grub-pc
+grub-efi-amd64-bin
+live-boot
+systemd-sysv
